@@ -29,6 +29,24 @@ folder_to_process = sys.argv[1] # this should be the filename/file path
 #####################################
 
 #####################################
+# REGEX
+#####################################
+
+# create a regex statement to match `user_file_ext_input`
+# https://regexr.com/3kvi4
+# re.compile should turn a raw string into current regex language so you can skip creating the formula sort of...
+
+user_file_ext_input = 'txt' # for this program we only want `.txt` or text files so we'll set this now instead of taking input
+
+file_type_regex1 = re.compile(user_file_ext_input + "$")
+# print(file_type_regex1) # for testing
+# print(file_type_regex1.search("testTextA1.txt")) # for testing
+
+#####################################
+# END REGEX
+#####################################
+
+#####################################
 # SCAN FOLDERS/FILES
 #####################################
 
@@ -65,7 +83,7 @@ def scanFolder(foldername_path):
 		else:
 			continue # otherwise skip and keep going
 
-def scanFile(foldername_path):
+def scanFile(foldername_path,regex):
 	# the file scanner that gets all of the files and pushes them into a list after we get the full string path to it
 	
 	dirs = os.listdir(foldername_path) # list all files of any kind (i.e. all file and folder names)
@@ -74,12 +92,12 @@ def scanFile(foldername_path):
 		# new_path = os.path.join(absPath,file) # creates a path to the file/folder
 		new_path = os.path.join(foldername_path,file) # creates a path to the file/folder
 
-		if os.path.isfile(new_path): #if the file is a folder
+		if os.path.isfile(new_path) and regex.search(file): #if the file is a folder AND has regex match
 			file_path_list.append(new_path) # add it to the list of folders with its full path name
 		else:
 			continue # otherwise skip and keep going
 
-def generate_targets(user_folder_input):
+def generate_targets(user_folder_input,regexMatch):
 	# run an initial scan of the upper level main folder tree
 	# find subfolders if any
 	scanFolder(user_folder_input)
@@ -91,14 +109,14 @@ def generate_targets(user_folder_input):
 	# then scan all the files by cycling through folder_path_list until no more subfolders are added/left
 	for subfolder in folder_path_list:
 		scanFolder(subfolder)
-		scanFile(subfolder)
+		scanFile(subfolder,regexMatch)
 
 	logging.debug('folder_path_list is now:  ')
 	logging.debug(folder_path_list)
 	logging.debug('file_path_list is now:  ')
 	logging.debug(file_path_list)
 
-generate_targets(folder_to_process) # create paths to all files we want to process
+generate_targets(folder_to_process,file_type_regex1) # create paths to all files we want to process
 
 #####################################
 # END SCAN FOLDERS/FILES
