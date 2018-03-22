@@ -1,0 +1,2 @@
+# Scratch Notes and Log
+
