@@ -131,8 +131,23 @@ generate_targets(folder_to_process,file_type_regex1) # create paths to all files
 # the function should go through a list of text files (i.e. text file paths)
 # then write them to a spreadsheet
 
-def write_text_2_sheet(workbook,line_list):
-	pass
+def write_text_2_sheet(workbook,column_counter,line_list):
+	# convert the column_counter number into a column letter
+	column_letter = get_column_letter(column_counter)
+	logging.debug('The column letter to write is: %s' % (column_letter) )
+
+	# now we iterate by row_number (within the same column)
+	# the number of rows will be equal to the number of lines of text (i.e. len(line_list) or the length of said list) + 1 (to get the last number)
+	# unfortunately need number range or would have used `for...in` loop
+	for row_number in range(1,len(line_list)+1):
+		logging.debug('The row number to write is: %s' % (str(row_number)) )
+		# create the column and row coordinate
+		cell_coordinate = column_letter + str(row_number)
+		logging.debug('The cell_coordinate is: %s' % (cell_coordinate) )
+		# set the value of the cell_coordinate
+		logging.debug('The line_list index is: %s' % (row_number - 1) )
+		logging.debug('The line_list value is: %s' % (line_list[row_number - 1]) )
+		workbook[cell_coordinate] = line_list[row_number - 1] # we subtract 1 because lists start at n = 0 unlike spreadsheet labels which start at n = 1
 
 def text2spreadsheet_generator(file_path_list):
 	
@@ -140,12 +155,10 @@ def text2spreadsheet_generator(file_path_list):
 	nwb = openpyxl.Workbook()
 
 	# set the counter used to assign column positioning
-	column_counter = 0
+	column_counter = 1
 
 	# for each text file in the `file_path_list`
 	for text_file_path in file_path_list:
-		# set the counter used to assign column positioning
-		column_counter += 1
 
 		# open the text file in `read` mode
 		text_target = open(text_file_path,'r+')
@@ -154,10 +167,13 @@ def text2spreadsheet_generator(file_path_list):
 		logging.debug('Text file readlines() results in:  ' % (n))
 		
 		# write the line(s) to the spreadsheet
-		
+		write_text_2_sheet(nwb,column_counter,line_list)
 
 		# close the text file you opened in `read` mode
 		text_target.close()
+
+		# increment counter used to assign column positioning
+		column_counter += 1
 	
 	# save the new spreadsheet
 	nwb.save('text2spreadsheetfinal.xlsx')
