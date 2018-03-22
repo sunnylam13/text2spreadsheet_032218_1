@@ -131,6 +131,9 @@ generate_targets(folder_to_process,file_type_regex1) # create paths to all files
 # the function should go through a list of text files (i.e. text file paths)
 # then write them to a spreadsheet
 
+def write_text_2_sheet(workbook,line_list):
+	pass
+
 def text2spreadsheet_generator(file_path_list):
 	
 	# create a new spreadsheet workbook to store the text
@@ -145,12 +148,16 @@ def text2spreadsheet_generator(file_path_list):
 		column_counter += 1
 
 		# open the text file in `read` mode
-		text_target = open(text_file_path,'r')
-		# go through it line by line
+		text_target = open(text_file_path,'r+')
+		# go through it line by line, this generates a list of strings
+		line_list = text_target.readlines()
+		logging.debug('Text file readlines() results in:  ' % (n))
 		
+		# write the line(s) to the spreadsheet
 		
-		# write the line to the spreadsheet
+
 		# close the text file you opened in `read` mode
+		text_target.close()
 	
 	# save the new spreadsheet
 	nwb.save('text2spreadsheetfinal.xlsx')

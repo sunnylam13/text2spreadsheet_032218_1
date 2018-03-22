@@ -48,7 +48,36 @@ This is 3rd line
 This is 4th line
 This is 5th line
 
+	#!/usr/bin/python3
+
+	# Open a file
+	fo = open("foo.txt", "r+")
+	print ("Name of the file: ", fo.name)
+
+	line = fo.readlines()
+	print ("Read Line: %s" % (line))
+
+	line = fo.readlines(2)
+	print ("Read Line: %s" % (line))
+
+	# Close opened file
+	fo.close()
+
+result
+
+	Name of the file:  foo.txt
+	Read Line: ['This is 1st line\n', 'This is 2nd line\n', 
+	   'This is 3rd line\n', 'This is 4th line\n', 'This is 5th line\n']
+	Read Line: 
+
+this generates a list of strings if only readlines() is used with no args
+
+it produces a specific string if a number arg is used...
+
 --------------------------------
 
+### Searches
+
+https://www.google.ca/search?q=readlines()+python+3&oq=readlines()&aqs=chrome.2.69i57j0l5.2824j0j7&sourceid=chrome&ie=UTF-8
 
 
