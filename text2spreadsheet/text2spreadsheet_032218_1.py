@@ -132,6 +132,9 @@ generate_targets(folder_to_process,file_type_regex1) # create paths to all files
 # then write them to a spreadsheet
 
 def write_text_2_sheet(workbook,column_counter,line_list):
+	# switch to active sheet / specific sheet
+	sheet = workbook.active
+
 	# convert the column_counter number into a column letter
 	column_letter = get_column_letter(column_counter)
 	logging.debug('The column letter to write is: %s' % (column_letter) )
@@ -147,7 +150,7 @@ def write_text_2_sheet(workbook,column_counter,line_list):
 		# set the value of the cell_coordinate
 		logging.debug('The line_list index is: %s' % (row_number - 1) )
 		logging.debug('The line_list value is: %s' % (line_list[row_number - 1]) )
-		workbook[cell_coordinate] = line_list[row_number - 1] # we subtract 1 because lists start at n = 0 unlike spreadsheet labels which start at n = 1
+		sheet[cell_coordinate] = line_list[row_number - 1] # we subtract 1 because lists start at n = 0 unlike spreadsheet labels which start at n = 1
 
 def text2spreadsheet_generator(file_path_list):
 	
