@@ -164,22 +164,24 @@ def text2spreadsheet_generator(file_path_list):
 		text_target = open(text_file_path,'r+')
 		# go through it line by line, this generates a list of strings
 		line_list = text_target.readlines()
-		logging.debug('Text file readlines() results in:  ' % (n))
+		logging.debug('Text file readlines() results in:  ')
+		logging.debug(line_list)
 		
 		# write the line(s) to the spreadsheet
 		write_text_2_sheet(nwb,column_counter,line_list)
+		logging.debug('Lines of text file have been written.')
 
 		# close the text file you opened in `read` mode
 		text_target.close()
+		logging.debug('Text file has been closed.')
 
 		# increment counter used to assign column positioning
 		column_counter += 1
+		logging.debug('column_counter incremented.')
 	
 	# save the new spreadsheet
 	nwb.save('text2spreadsheetfinal.xlsx')
 	logging.debug('Spreadsheet file saved.')
-
-	
 
 
 #####################################
@@ -191,7 +193,7 @@ def text2spreadsheet_generator(file_path_list):
 # EXECUTION
 #####################################
 
-
+text2spreadsheet_generator(file_path_list)
 
 #####################################
 # END EXECUTION
