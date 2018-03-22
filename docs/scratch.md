@@ -26,3 +26,7 @@ Still need to create a bunch of files in a folder for testing...
 
 Put it in the `/tests` folder...
 
+	tests/testFolder1
+
+	../tests/testFolder1 # one `.` is cwd, `..` is into the project root
+

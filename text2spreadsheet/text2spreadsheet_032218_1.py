@@ -4,6 +4,7 @@
 
 # USAGE
 # python3 text2spreadsheet_032218_1.py FOLDERPATH
+# python3 text2spreadsheet_032218_1.py "../tests/testFolder1"
 
 import openpyxl, sys, os
 
