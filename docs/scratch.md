@@ -14,3 +14,9 @@ next file read with `readlines()` should be output to column 2...
 
 etc...
 
+## Thursday, March 22, 2018 12:55 PM
+
+for data on file reading, see this project
+
+	file:///Users/sunnyair/Dropbox/python_projects/selective_copy_021818_1/
+
