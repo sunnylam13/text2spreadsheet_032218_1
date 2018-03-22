@@ -37,7 +37,7 @@ folder_to_process = sys.argv[1] # this should be the filename/file path
 # https://regexr.com/3kvi4
 # re.compile should turn a raw string into current regex language so you can skip creating the formula sort of...
 
-user_file_ext_input = 'txt' # for this program we only want `.txt` or text files so we'll set this now instead of taking input
+user_file_ext_input = '.txt' # for this program we only want `.txt` or text files so we'll set this now instead of taking input
 
 file_type_regex1 = re.compile(user_file_ext_input + "$")
 # print(file_type_regex1) # for testing
