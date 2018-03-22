@@ -6,6 +6,10 @@ This program reads several text files and sticks the content into a spreadsheet,
 
 	../tests/testFolder1
 
+## Execution
+
+	python3 text2spreadsheet_032218_1.py FOLDERPATH
+
 ## Resources
 
 ABSP:  491
