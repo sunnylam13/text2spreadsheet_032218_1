@@ -20,3 +20,9 @@ for data on file reading, see this project
 
 	file:///Users/sunnyair/Dropbox/python_projects/selective_copy_021818_1/
 
+## Thursday, March 22, 2018 1:09 PM
+
+Still need to create a bunch of files in a folder for testing...
+
+Put it in the `/tests` folder...
+
