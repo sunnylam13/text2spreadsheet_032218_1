@@ -6,7 +6,7 @@
 # python3 text2spreadsheet_032218_1.py FOLDERPATH
 # python3 text2spreadsheet_032218_1.py "../tests/testFolder1"
 
-import openpyxl, sys, os
+import openpyxl, sys, os, re
 
 try:
 	from openpyxl.cell import column_index_from_string,get_column_letter
@@ -103,7 +103,7 @@ def generate_targets(user_folder_input,regexMatch):
 	# find subfolders if any
 	scanFolder(user_folder_input)
 	# find matching files or just files
-	scanFile(user_folder_input)
+	scanFile(user_folder_input,regexMatch)
 
 	# then scan all the sub folders by cycling through folder_path_list until no more subfolders are added
 	# this should keep going until no more subfolders are analyzed

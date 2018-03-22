@@ -11,7 +11,7 @@ config = {
 	'author_email': 'sunny.lam@gmail.com',
 	'version': '0.1',
 	'install_requires': ['nose'],
-	'packages': ['openpyxl'],
+	'packages': ['openpyxl, sys, os, re'],
 	'scripts': [],
 	'name': 'Text Files to Spreadsheet'
 }
