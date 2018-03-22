@@ -132,8 +132,31 @@ generate_targets(folder_to_process,file_type_regex1) # create paths to all files
 # then write them to a spreadsheet
 
 def text2spreadsheet_generator(file_path_list):
-	pass
+	
+	# create a new spreadsheet workbook to store the text
+	nwb = openpyxl.Workbook()
 
+	# set the counter used to assign column positioning
+	column_counter = 0
+
+	# for each text file in the `file_path_list`
+	for text_file_path in file_path_list:
+		# set the counter used to assign column positioning
+		column_counter += 1
+
+		# open the text file in `read` mode
+		text_target = open(text_file_path,'r')
+		# go through it line by line
+		
+		
+		# write the line to the spreadsheet
+		# close the text file you opened in `read` mode
+	
+	# save the new spreadsheet
+	nwb.save('text2spreadsheetfinal.xlsx')
+	logging.debug('Spreadsheet file saved.')
+
+	
 
 
 #####################################

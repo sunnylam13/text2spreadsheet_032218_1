@@ -14,3 +14,5 @@ This program reads several text files and sticks the content into a spreadsheet,
 
 ABSP:  491
 
+[Python 3 readlines()](https://www.tutorialspoint.com/python3/file_readlines.htm)
+

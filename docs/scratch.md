@@ -30,3 +30,25 @@ Put it in the `/tests` folder...
 
 	../tests/testFolder1 # one `.` is cwd, `..` is into the project root
 
+## Thursday, March 22, 2018 2:55 PM
+
+[Python 3 readlines()](https://www.tutorialspoint.com/python3/file_readlines.htm)
+
+This method returns a list containing the lines.
+
+--------------------------------
+
+EXAMPLE:  The following example shows the usage of readlines() method.
+
+Assuming that 'foo.txt' file contains following text:
+
+This is 1st line
+This is 2nd line
+This is 3rd line
+This is 4th line
+This is 5th line
+
+--------------------------------
+
+
+
